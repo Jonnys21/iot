@@ -70,7 +70,8 @@
   // called when a message arrives
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
-	doAction(message.payloadString);
+	sen=document.getElementById('sensor_val');
+	sen.innerHTML=message.payloadString;
   }
   
     // called when a message arrives
@@ -86,7 +87,7 @@
     boarId=document.getElementById("boarId").value;
 	userIdId=document.getElementById("userId").value;
 	
-    sendMessage(userId+boarId+':led_state:0')
+    sendMessage(':led_state:0')
   }
   // called when a message arrives
   myName='leo'
@@ -100,10 +101,10 @@
 	
 	if(boarId+userId==n){
 		switch(f) {
-		  case 'led_state':
-			led_state=v;
-			document.getElementById("led_state").innerHTML=led_state;
-			break;
+		  //case 'led_state':
+			//led_state=v;
+			//document.getElementById("led_state").innerHTML=led_state;
+			//break;
 		  case 'sensor_val':
 			sensor_val=v;
 			document.getElementById("sensor_val").innerHTML=sensor_val;
@@ -117,3 +118,4 @@
   
 </script>
 	</body>
+</html>
